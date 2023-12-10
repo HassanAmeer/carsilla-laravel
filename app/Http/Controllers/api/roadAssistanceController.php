@@ -3,14 +3,17 @@
 namespace App\Http\Controllers\api;
 
 use Illuminate\Http\Request;
-use App\Models\workshopModel;
+use App\Models\invoicetableModel;
+use App\Models\roadassistanceModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
-class workshopController extends Controller
+
+class roadAssistanceController extends Controller
 {
-    public function getworkshopF(){
-        $data = workshopModel::orderBy('id', 'desc')->get();
+    public function getRoadAssisF(){
+        $data = roadassistanceModel::orderBy('id', 'desc')->get();
         if($data->count() > 0){
             return response()->json([
                 "status" => true,
@@ -23,8 +26,8 @@ class workshopController extends Controller
             ], 404);
         }
     }
-    /////////// add workshop
-    public function addworkshopF(Request $req){
+     /////////// add workshop
+     public function addRoadAssisF(Request $req){
         $validator = Validator::make($req->all(), [
             'user_id' => 'required',
        ]);
@@ -33,27 +36,40 @@ class workshopController extends Controller
                 "status" => false,
                 "required fields" => [
                     'user_id',
-                    'user_name',
+                    'category',
                     'when_pickup_date',
+                    'from_pickup_address',
+                    'from_address_lat',
+                    'from_address_lng',
                     'where_pickup_address',
+                    'where_address_lat',
+                    'where_address_lng',
                     'time',
-                    'car_name',
-                    'repair_or_addnewparts',
-                    'wich_repaired',
+                    'invoice_id',
                 ],
-                "Message" => "Required All Fields",
             ], 404);
       }else{
-        $check = workshopModel::create([
-            // 'id' => $req->id,
+        $check = roadassistanceModel::create([
             'user_id' => $req->user_id,
-            'user_name' => $req->user_name,
             'when_pickup_date' => $req->when_pickup_date,
+            'from_pickup_address' => $req->from_pickup_address,
+            'from_address_lat' => $req->from_address_lat,
+            'from_address_lng' => $req->from_address_lng,
             'where_pickup_address' => $req->where_pickup_address,
+            'where_address_lat' => $req->where_address_lat,
+            'where_address_lng' => $req->where_address_lng,
             'time' => $req->time,
-            'car_name' => $req->car_name,
-            'repair_or_addnewparts' => $req->repair_or_addnewparts,
-            'wich_repaired' => $req->wich_repaired,
+            'category' => $req->category,
+        ]);
+        $invoice_id = strtoupper(Str::random(16));
+        invoicetableModel::create([
+            'user_id' => $req->user_id,
+            'invoice_id' => $invoice_id,
+            'invoice_title' => 'Home Assistance',
+            'invoice_desc' => 'Something',
+            'is_pay' => '0',
+            'pay_by' => 'byhand',
+            'total_pay' => '100',
         ]);
         if($check){
             return response()->json([
@@ -63,7 +79,7 @@ class workshopController extends Controller
         }else{
             return response()->json([
                 "status" => false,
-                "Message" => "List Can Not Be Added",
+                "Message" => "Road Assistance Faild",
             ], 404);
         }}
     }

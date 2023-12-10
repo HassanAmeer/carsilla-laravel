@@ -21,9 +21,7 @@ return new class extends Migration
             $table->string('car_name')->nullable()->default('Toyota');
             $table->string('repair_or_addnewparts')->nullable()->default('repair'); 
             $table->string('wich_repaired')->nullable()->default('seat_repair');
-            $table->string('is_pay')->nullable()->default('0');
-            $table->string('pay_by')->nullable()->default('0');
-            $table->string('total_pay')->nullable()->default('100');
+            $table->string('invoice_id')->nullable()->default('invoice1234');
             $table->timestamps();
         });
     }

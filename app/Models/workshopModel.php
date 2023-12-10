@@ -19,9 +19,7 @@ class workshopModel extends Model
         'car_name',
         'repair_or_addnewparts',
         'wich_repaired',
-        'is_pay',
-        'pay_by',
-        'total_pay',
+        'invoice_id',
     ];
 
 }

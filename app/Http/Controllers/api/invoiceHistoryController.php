@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\api;
 
 use Illuminate\Http\Request;
-use App\Models\workshopModel;
+use App\Models\invoicetableModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class workshopController extends Controller
+class invoiceHistoryController extends Controller
 {
-    public function getworkshopF(){
-        $data = workshopModel::orderBy('id', 'desc')->get();
+    public function getInvoiceListF(){
+        $data = invoicetableModel::orderBy('id', 'desc')->get();
         if($data->count() > 0){
             return response()->json([
                 "status" => true,
@@ -23,8 +23,8 @@ class workshopController extends Controller
             ], 404);
         }
     }
-    /////////// add workshop
-    public function addworkshopF(Request $req){
+     /////////// add workshop
+     public function addInvoiceListF(Request $req){
         $validator = Validator::make($req->all(), [
             'user_id' => 'required',
        ]);
@@ -33,37 +33,33 @@ class workshopController extends Controller
                 "status" => false,
                 "required fields" => [
                     'user_id',
-                    'user_name',
-                    'when_pickup_date',
-                    'where_pickup_address',
-                    'time',
-                    'car_name',
-                    'repair_or_addnewparts',
-                    'wich_repaired',
+                    'invoice_id',
+                    'invoice_title',
+                    'invoice_desc',
+                    'is_pay',
+                    'pay_by',
+                    'total_pay',
                 ],
-                "Message" => "Required All Fields",
             ], 404);
       }else{
-        $check = workshopModel::create([
-            // 'id' => $req->id,
+        $check = invoicetableModel::create([
             'user_id' => $req->user_id,
-            'user_name' => $req->user_name,
-            'when_pickup_date' => $req->when_pickup_date,
-            'where_pickup_address' => $req->where_pickup_address,
-            'time' => $req->time,
-            'car_name' => $req->car_name,
-            'repair_or_addnewparts' => $req->repair_or_addnewparts,
-            'wich_repaired' => $req->wich_repaired,
+            'invoice_id' => $req->invoice_id,
+            'invoice_title' => $req->invoice_title,
+            'invoice_desc' => $req->invoice_desc,
+            'is_pay' => $req->is_pay,
+            'pay_by' => $req->pay_by,
+            'total_pay' => $req->total_pay,
         ]);
         if($check){
             return response()->json([
                 "status" => true,
-                "data" => 'Order Recieved',
+                "data" => 'Invoice Added',
             ], 200);
         }else{
             return response()->json([
                 "status" => false,
-                "Message" => "List Can Not Be Added",
+                "Message" => "Invoice Faild to Add",
             ], 404);
         }}
     }
