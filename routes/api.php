@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\allUsersController;
 use App\Http\Controllers\api\workshopController;
+use App\Http\Controllers\api\carDealersController;
+use App\Http\Controllers\api\carListingController;
 use App\Http\Controllers\api\homeAssistanceController;
 use App\Http\Controllers\api\invoiceHistoryController;
 use App\Http\Controllers\api\roadAssistanceController;
@@ -19,7 +21,21 @@ use App\Http\Controllers\api\serviceProviderListLocController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
+// /getusers    // Get
+// /updateprofile  // POST
+// /emailupdate  // POST
+// /passwordupdate  // POST
+// /addworkshop  // POST
+// /checkuserbyphone/{phone}  // GET
+// /adduser  // POST
+// /gethomeassis  // GET
+// /addhomeassis  // POST
+// /getroadassis  // GET
+// /addroadassis  // POST
+// /getserviceproviders // GET
+// /addserviceproviders  // POST
+// /getinvoices  // GET
+// /addinvoice  // POST
 /////////////////////////////////////////////////////////
 Route::get('getusers',  [allUsersController::class, 'getUsersApiF'] );
 Route::post('updateprofile',  [allUsersController::class, 'UpdateProfileApiF'] );
@@ -29,7 +45,7 @@ Route::post('addworkshop',  [workshopController::class, 'addworkshopF'] );
 Route::get('checkuserbyphone/{phone}',  [allUsersController::class, 'checkUserByPhoneApiF'] );
 Route::post('adduser',  [allUsersController::class, 'addUserF']);
 /////// 
-Route::get('getworkshop',  [workshopController::class, 'getworkshopF'] );
+Route::get('getworkshop',  [workshopController::class, 'getworkshopF']);
 Route::get('gethomeassis',  [homeAssistanceController::class, 'getHomeAssisF'] );
 Route::post('addhomeassis',  [homeAssistanceController::class, 'addHomeAssisF']);
 Route::get('getroadassis',  [roadAssistanceController::class, 'getRoadAssisF'] );
@@ -38,7 +54,10 @@ Route::get('getserviceproviders',  [serviceProviderListLocController::class, 'ge
 Route::post('addserviceproviders',  [serviceProviderListLocController::class, 'addServiceProvidersListF']);
 Route::get('getinvoices',  [invoiceHistoryController::class, 'getInvoiceListF'] );
 Route::post('addinvoice',  [invoiceHistoryController::class, 'addInvoiceListF']);
-
+////////
+Route::get('getdealers',  [carDealersController::class, 'getListingDealersF'] );
+Route::get('getlisting',  [carListingController::class, 'getCarListingF'] );
+Route::post('addlisting',  [carListingController::class, 'addHomeAssisF'] );
 
 
 
