@@ -21,13 +21,13 @@ return new class extends Migration
             $table->string('listing_year')->nullable()->default('2023'); 
             $table->string('listing_title')->nullable()->default('Car Name'); 
             $table->string('listing_desc')->nullable()->default('something About This'); 
-            $table->string('listing_img1')->nullable()->default('icons/carvector.jpg'); 
-            $table->string('listing_img2')->nullable()->default('icons/carvector.jpg'); 
-            $table->string('listing_img3')->nullable()->default('icons/carvector.jpg'); 
-            $table->string('listing_img4')->nullable()->default('icons/carvector.jpg'); 
-            $table->string('listing_img5')->nullable()->default('icons/carvector.jpg'); 
-            // $table->string('listing_img6')->nullable()->default('icons/carvector.jpg'); 
-            $table->string('listing_price')->nullable()->default('icons/carvector.jpg'); 
+            $table->string('listing_img1')->nullable()->default('icons/notfound.png'); 
+            $table->string('listing_img2')->nullable()->default('icons/notfound.png'); 
+            $table->string('listing_img3')->nullable()->default('icons/notfound.png'); 
+            $table->string('listing_img4')->nullable()->default('icons/notfound.png'); 
+            $table->string('listing_img5')->nullable()->default('icons/notfound.png'); 
+            // $table->string('listing_img6')->nullable()->default('icons/notfound.png'); 
+            $table->string('listing_price')->nullable()->default('icons/notfound.png'); 
             $table->string('features_gear')->nullable()->default('auto'); //// autometic / manual
             $table->string('features_speed')->nullable()->default('120'); // KM/h
             $table->string('features_seats')->nullable()->default('4'); 
