@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\adminChatsController;
 use App\Http\Controllers\api\allUsersController;
 use App\Http\Controllers\api\workshopController;
+use App\Http\Controllers\api\adminChatsController;
 use App\Http\Controllers\api\carDealersController;
 use App\Http\Controllers\api\carListingController;
 use App\Http\Controllers\api\sparePartsController;
@@ -16,6 +16,7 @@ use App\Http\Controllers\api\repairingvehiclesController;
 use App\Http\Controllers\api\carInsuranceOrdersController;
 use App\Http\Controllers\api\carInsuranceCompaniesController;
 use App\Http\Controllers\api\serviceProviderListLocController;
+use App\Http\Controllers\api\vhicleTrasportaionHomeAssisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,7 +80,10 @@ Route::get('getallchats',  [adminChatsController::class, 'getAllChatsF'] );
 Route::get('getchatsbyid/{id}',  [adminChatsController::class, 'getChatsByUserIdF'] );
 Route::post('addchats',  [adminChatsController::class, 'addChatsF'] );
 
-
+Route::get('getallvthomeassis',  [vhicleTrasportaionHomeAssisController::class, 'getallVhicleTHomeAssisF'] );
+Route::get('getvthomeassisbyuserid/{id}',  [vhicleTrasportaionHomeAssisController::class, 'getVhicleTHomeAssisByUserIdF'] );
+Route::post('addvthomeassis',  [vhicleTrasportaionHomeAssisController::class, 'addVhicleTransHomeAssisF'] );
+////////
 
 
 
