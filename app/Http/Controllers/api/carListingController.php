@@ -74,7 +74,7 @@ class carListingController extends Controller
                $img1->move(public_path('listings'), $imgname1);
                $listing_img1 = 'listings/'.$imgname1;
             }else {
-                $listing_img1 = 'icons/notfound.png';
+                $listing_img1 = 'icons/noimg.png';
             } 
             /////
             if ($req->hasFile('listing_img2')) {
@@ -83,7 +83,7 @@ class carListingController extends Controller
                $img2->move(public_path('listings'), $imgname2);
                $listing_img2 = 'listings/'.$imgname2;
             }else {
-                $listing_img2 = 'icons/notfound.png';
+                $listing_img2 = 'icons/noimg.png';
             } 
             /////
             if ($req->hasFile('listing_img3')) {
@@ -92,7 +92,7 @@ class carListingController extends Controller
                $img3->move(public_path('listings'), $imgname3);
                $listing_img3 = 'listings/'.$imgname3;
             }else {
-                $listing_img3 = 'icons/notfound.png';
+                $listing_img3 = 'icons/noimg.png';
             } 
             /////
             if ($req->hasFile('listing_img4')) {
@@ -101,7 +101,7 @@ class carListingController extends Controller
                $img4->move(public_path('listings'), $imgname4);
                $listing_img4 = 'listings/'.$imgname4;
             }else {
-                $listing_img4 = 'icons/notfound.png';
+                $listing_img4 = 'icons/noimg.png';
             } 
             /////
             if ($req->hasFile('listing_img5')) {
@@ -110,7 +110,7 @@ class carListingController extends Controller
                $img5->move(public_path('listings'), $imgname5);
                $listing_img5 = 'listings/'.$imgname5;
             }else {
-                $listing_img5 = 'icons/notfound.png';
+                $listing_img5 = 'icons/noimg.png';
             } 
             /////
             ////////// handle images end
@@ -175,7 +175,7 @@ class carListingController extends Controller
            $img1->move(public_path('listings'), $imgname1);
            $listing_img1 = 'listings/'.$imgname1;
         }else {
-            $listing_img1 = 'icons/notfound.png';
+            $listing_img1 = 'icons/noimg.png';
         } 
         /////
         if ($req->hasFile('listing_img2')) {
@@ -184,7 +184,7 @@ class carListingController extends Controller
            $img2->move(public_path('listings'), $imgname2);
            $listing_img2 = 'listings/'.$imgname2;
         }else {
-            $listing_img2 = 'icons/notfound.png';
+            $listing_img2 = 'icons/noimg.png';
         } 
         /////
         if ($req->hasFile('listing_img3')) {
@@ -193,7 +193,7 @@ class carListingController extends Controller
            $img3->move(public_path('listings'), $imgname3);
            $listing_img3 = 'listings/'.$imgname3;
         }else {
-            $listing_img3 = 'icons/notfound.png';
+            $listing_img3 = 'icons/noimg.png';
         } 
         /////
         if ($req->hasFile('listing_img4')) {
@@ -202,7 +202,7 @@ class carListingController extends Controller
            $img4->move(public_path('listings'), $imgname4);
            $listing_img4 = 'listings/'.$imgname4;
         }else {
-            $listing_img4 = 'icons/notfound.png';
+            $listing_img4 = 'icons/noimg.png';
         } 
         /////
         if ($req->hasFile('listing_img5')) {
@@ -211,7 +211,7 @@ class carListingController extends Controller
            $img5->move(public_path('listings'), $imgname5);
            $listing_img5 = 'listings/'.$imgname5;
         }else {
-            $listing_img5 = 'icons/notfound.png';
+            $listing_img5 = 'icons/noimg.png';
         } 
         /////
         ////////// handle images end

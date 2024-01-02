@@ -2,13 +2,19 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\adminChatsController;
 use App\Http\Controllers\api\allUsersController;
 use App\Http\Controllers\api\workshopController;
 use App\Http\Controllers\api\carDealersController;
 use App\Http\Controllers\api\carListingController;
+use App\Http\Controllers\api\sparePartsController;
 use App\Http\Controllers\api\homeAssistanceController;
 use App\Http\Controllers\api\invoiceHistoryController;
 use App\Http\Controllers\api\roadAssistanceController;
+use App\Http\Controllers\api\sparepartsshopController;
+use App\Http\Controllers\api\repairingvehiclesController;
+use App\Http\Controllers\api\carInsuranceOrdersController;
+use App\Http\Controllers\api\carInsuranceCompaniesController;
 use App\Http\Controllers\api\serviceProviderListLocController;
 
 /*
@@ -58,6 +64,26 @@ Route::post('addinvoice',  [invoiceHistoryController::class, 'addInvoiceListF'])
 Route::get('getdealers',  [carDealersController::class, 'getListingDealersF'] );
 Route::get('getlisting',  [carListingController::class, 'getCarListingF'] );
 Route::post('addlisting',  [carListingController::class, 'addHomeAssisF'] );
+////////
+Route::post('addrepairingcars',  [repairingvehiclesController::class, 'addRepairingCarsF'] );
+Route::get('getrepairingcars',  [repairingvehiclesController::class, 'getRepairingCarsF'] );
+Route::get('getspareparts',  [sparePartsController::class, 'getSparePartsF'] );
+Route::get('getsparepartsshops',  [sparepartsshopController::class, 'getSparePartsShopsF'] );
+////////
+Route::get('getinsurancecompanies',  [carInsuranceCompaniesController::class, 'getInsuranceCompaniesListF'] );
+Route::get('getallinsuranceorders',  [carInsuranceOrdersController::class, 'getAllInsuranceOrdersListF'] );
+Route::get('getinsuranceordersbyuserid/{id}',  [carInsuranceOrdersController::class, 'getInsuranceOrdersByUserIdF'] );
+Route::post('addinsranceorder',  [carInsuranceOrdersController::class, 'addInsranceOrderF'] );
+
+Route::get('getallchats',  [adminChatsController::class, 'getAllChatsF'] );
+Route::get('getchatsbyid/{id}',  [adminChatsController::class, 'getChatsByUserIdF'] );
+Route::post('addchats',  [adminChatsController::class, 'addChatsF'] );
+
+
+
+
+
+
 
 
 
